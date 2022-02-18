@@ -1,6 +1,6 @@
 import React from "react";
 import './Playlist.css';
-import TrackList from '../TrackList/TrackLists'
+import TrackList from '../TrackList/TrackList'
 
 
 class Playlist extends React.Component {
@@ -18,14 +18,14 @@ class Playlist extends React.Component {
     render() {
         return (
             <div className="Playlist">
-                <input defaultValue={"New Playlist"}
-                    onChange={this.handleNameChange} />
+                <input id="Playlist-name" placeholder="Enter a playlist name" defaultValue={this.props.playlistName} onChange={this.handleNameChange} onKeyPress={this.handleKeyPress} onClick={this.handleClick} />
                 <TrackList tracks={this.props.playlistTracks}
                     onRemove={this.props.onRemove}
                     isRemoval={true} />
-                <button className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</button>
+                <a className="Playlist-save"
+                    onClick={this.props.onSave} >SAVE TO SPOTIFY</a>
             </div>
-        )
+        );
     }
 }
 
